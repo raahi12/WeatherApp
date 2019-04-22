@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="location">
+<input [(ngModel)]="city" placeholder="enter your city name"/>
+<button (click)="getData()">click me</button>
+</div>
+<div class="weather-forecast" role="main">
+    <div class="location">{{forecast.city.name}},{{forecast.city.country}}</div>
+    <div class="current">
+      <div class="visual">
+        <div><img src="{{url}}"/></div>
+        <div class="temp">{{temp}}</div>
+        <div class="scale">°F</div>
+      </div>
+      <div class="description">
+        <div class="temp">{{comment}}</div>
+        <br>
+        <div class="temp">{{pressure}} Bar</div>
+      </div>
+    </div>
+    <div class="seven-day">
+      <div class="seven-day-fc" *ngFor="let data of dayList">
+    
+          <app-weather [data]="data"></app-weather>
+        
+      </div>
+      
+    </div>
+  </div>
+<router-outlet></router-outlet>
